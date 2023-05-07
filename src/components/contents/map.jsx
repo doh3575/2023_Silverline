@@ -15,7 +15,7 @@ const MapComponent = ({ value }) => {
       latlng: { lat: 37.5035055, lng: 126.953951 },
     },
     {
-      title: "상도엠코타운애스톤파크아파트경로당",
+      title: "상도프레스티지아파트경로당",
       latlng: { lat: 37.4965206, lng: 126.948923 },
     },
     {
@@ -51,7 +51,7 @@ const MapComponent = ({ value }) => {
       latlng: { lat: 37.5021091, lng: 126.954348 },
     },
     {
-      title: "터널경로당",
+      title: "상도은빛어르신복지관",
       latlng: { lat: 37.5064687, lng: 126.951303 },
     },
     {

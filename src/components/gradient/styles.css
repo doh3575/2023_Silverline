@@ -1,0 +1,50 @@
+.gradient {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 8px;
+}
+
+.gradient-text {
+  padding: 0 4px;
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.gradient-block {
+  margin-top: 6px;
+  width: 400px;
+  height: 20px;
+  border-radius: 16px;
+  background-image: linear-gradient(
+    to right,
+    #ff0000,
+    #ff3506,
+    #ff6a0b,
+    #ff9c10,
+    #ffe818,
+    #cfdb1a,
+    #a0b10f,
+    #71960a,
+    #32984f,
+    #007f4f
+  );
+}
+
+@media (max-width: 720px) {
+  .gradient {
+    align-items: center;
+  }
+
+  .gradient-text {
+    width: 90%;
+    font-size: 9px;
+  }
+  .gradient-block {
+    width: 90%;
+  }
+}

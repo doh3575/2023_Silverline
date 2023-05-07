@@ -20,11 +20,6 @@ const MapComponent = ({ value }) => {
         style={{ width: "100%", height: "100%" }}
         level={4}
       >
-        <Marker
-          key={markerData.id}
-          position={[markerData.lat, markerData.lng]}
-        ></Marker>
-
         {!!convertData.length && (
           <>
             {convertData.map((data) => (

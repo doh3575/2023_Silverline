@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Map, Polyline } from "react-kakao-maps-sdk";
+import { Map, Marker, Polyline } from "react-kakao-maps-sdk";
 import markerData from "@/assets/markerData";
 import { getResult } from "@/assets/utils";
 
@@ -20,6 +20,11 @@ const MapComponent = ({ value }) => {
         style={{ width: "100%", height: "100%" }}
         level={4}
       >
+        <Marker
+          key={markerData.id}
+          position={[markerData.lat, markerData.lng]}
+        ></Marker>
+
         {!!convertData.length && (
           <>
             {convertData.map((data) => (

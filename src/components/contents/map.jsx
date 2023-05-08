@@ -1,6 +1,13 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
-import { Map, MapMarker, Polyline } from "react-kakao-maps-sdk";
+import {
+  Map,
+  MapMarker,
+  Polyline,
+  RoadviewWithMapButtonStyle,
+  MapTypeId,
+  Roadview,
+} from "react-kakao-maps-sdk";
 import { getResult } from "@/assets/utils";
 
 const MapComponent = ({ value }) => {

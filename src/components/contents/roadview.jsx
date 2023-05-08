@@ -38,7 +38,7 @@ return (
     }}
   >
     <RoadviewWithMapButtonStyle />
-    <Map // 로드뷰를 표시할 Container
+    <Map // 지도를 표시할 Container
       center={center}
       style={{
         // 지도의 크기

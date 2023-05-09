@@ -136,102 +136,100 @@ const MapComponent = ({ value }) => {
           </>
         )}
       </Map>
-    </section>
-  );
 
-  return (
-    <div
-      style={{
-        display: "flex",
-        position: "relative",
-        width: "100%",
-        height: "100%",
-      }}
-    >
-      <RoadviewWithMapButtonStyle />
-      <Map // 로드뷰를 표시할 Container
-        center={center}
+      <div
         style={{
-          // 지도의 크기
-          width: !isVisible ? "100%" : "50%",
+          display: "flex",
+          position: "relative",
+          width: "100%",
           height: "100%",
         }}
-        level={3}
-        ref={mapRef}
       >
-        {isAtive && (
-          <>
-            <MapTypeId type={kakao.maps.MapTypeId.ROADVIEW} />
-            <MapMarker
-              position={center}
-              draggable={true}
-              onDragEnd={(marker) => {
-                setCenter({
-                  lat: marker.getPosition().getLat(),
-                  lng: marker.getPosition().getLng(),
-                });
-              }}
-              image={{
-                src: "https://t1.daumcdn.net/localimg/localimages/07/2018/pc/roadview_minimap_wk_2018.png",
-                size: { width: 26, height: 46 },
-                options: {
-                  spriteSize: { width: 1666, height: 168 },
-                  spriteOrigin: { x: 705, y: 114 },
-                  offset: { x: 13, y: 46 },
-                },
-              }}
-            />
-          </>
-        )}
-      </Map>
-      <div
-        id="roadviewControl"
-        className={isAtive ? "active" : ""}
-        onClick={() => {
-          setIsVisible(true);
-          setIsAtive(!isAtive);
-        }}
-      >
-        <span className="img"></span>
-      </div>
-      <div
-        style={{
-          position: "relative",
-          width: isVisible ? "50%" : "0",
-          overflow: "hidden",
-        }}
-      >
-        <Roadview // 로드뷰를 표시할 Container
-          position={{ ...center, radius: 50 }}
+        <RoadviewWithMapButtonStyle />
+        <Map // 로드뷰를 표시할 Container
+          center={center}
           style={{
             // 지도의 크기
-            width: "100%",
+            width: !isVisible ? "100%" : "50%",
             height: "100%",
           }}
-          onPositionChanged={(rv) => {
-            setCenter({
-              lat: rv.getPosition().getLat(),
-              lng: rv.getPosition().getLng(),
-            });
-          }}
-          onPanoidChange={() => {
-            isAtive && setIsVisible(true);
-          }}
-          onErrorGetNearestPanoId={() => {
-            setIsVisible(false);
-          }}
-          ref={roadviewRef}
+          level={3}
+          ref={mapRef}
         >
-          <div
-            id="close"
-            title="로드뷰닫기"
-            onClick={() => setIsVisible(false)}
+          {isAtive && (
+            <>
+              <MapTypeId type={kakao.maps.MapTypeId.ROADVIEW} />
+              <MapMarker
+                position={center}
+                draggable={true}
+                onDragEnd={(marker) => {
+                  setCenter({
+                    lat: marker.getPosition().getLat(),
+                    lng: marker.getPosition().getLng(),
+                  });
+                }}
+                image={{
+                  src: "https://t1.daumcdn.net/localimg/localimages/07/2018/pc/roadview_minimap_wk_2018.png",
+                  size: { width: 26, height: 46 },
+                  options: {
+                    spriteSize: { width: 1666, height: 168 },
+                    spriteOrigin: { x: 705, y: 114 },
+                    offset: { x: 13, y: 46 },
+                  },
+                }}
+              />
+            </>
+          )}
+        </Map>
+        <div
+          id="roadviewControl"
+          className={isAtive ? "active" : ""}
+          onClick={() => {
+            setIsVisible(true);
+            setIsAtive(!isAtive);
+          }}
+        >
+          <span className="img"></span>
+        </div>
+        <div
+          style={{
+            position: "relative",
+            width: isVisible ? "50%" : "0",
+            overflow: "hidden",
+          }}
+        >
+          <Roadview // 로드뷰를 표시할 Container
+            position={{ ...center, radius: 50 }}
+            style={{
+              // 지도의 크기
+              width: "100%",
+              height: "100%",
+            }}
+            onPositionChanged={(rv) => {
+              setCenter({
+                lat: rv.getPosition().getLat(),
+                lng: rv.getPosition().getLng(),
+              });
+            }}
+            onPanoidChange={() => {
+              isAtive && setIsVisible(true);
+            }}
+            onErrorGetNearestPanoId={() => {
+              setIsVisible(false);
+            }}
+            ref={roadviewRef}
           >
-            <span className="img"></span>
-          </div>
-        </Roadview>
+            <div
+              id="close"
+              title="로드뷰닫기"
+              onClick={() => setIsVisible(false)}
+            >
+              <span className="img"></span>
+            </div>
+          </Roadview>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

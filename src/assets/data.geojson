@@ -284,7 +284,7 @@
         "Index_Slight": 0.0,
         "Tunnel": 10,
         "Wisland": 0,
-        "Stairs": 0,
+        "Stairs": 3.3791121,
         "Index_CCTV": 8.7775435851299992,
         "Shape_Length": 0.00022024873
       },
@@ -1240,7 +1240,7 @@
         "Index_Slight": 1.6666666666700001,
         "Tunnel": 10,
         "Wisland": 0,
-        "Stairs": 0,
+        "Stairs": 5.16448419,
         "Index_CCTV": 8.2351671228200001,
         "Shape_Length": 0.00027627541
       },
@@ -2877,7 +2877,7 @@
         "Index_Slight": 0.0,
         "Tunnel": 10,
         "Wisland": 0,
-        "Stairs": 0,
+        "Stairs": 3.00542958,
         "Index_CCTV": 6.43855423692,
         "Shape_Length": 0.00019766121
       },
@@ -3409,7 +3409,7 @@
         "Index_Slight": 0.0,
         "Tunnel": 10,
         "Wisland": 0,
-        "Stairs": 0,
+        "Stairs": 3.44298946,
         "Index_CCTV": 8.3815074706699999,
         "Shape_Length": 0.000231186
       },
@@ -6388,7 +6388,7 @@
         "Index_Slight": 3.3333333333300001,
         "Tunnel": 10,
         "Wisland": 0,
-        "Stairs": 0,
+        "Stairs": 1.50750559,
         "Index_CCTV": 8.44677344732,
         "Shape_Length": 0.00028026407
       },
@@ -6833,7 +6833,7 @@
         "Index_Slight": 5.0,
         "Tunnel": 10,
         "Wisland": 0,
-        "Stairs": 0,
+        "Stairs": 7.78664963,
         "Index_CCTV": 3.98039564817,
         "Shape_Length": 0.00056243831
       },
@@ -8120,7 +8120,7 @@
         "Index_Slight": 0.0,
         "Tunnel": 10,
         "Wisland": 0,
-        "Stairs": 0,
+        "Stairs": 1.55221974,
         "Index_CCTV": 5.2657130974599999,
         "Shape_Length": 0.00026104868
       },
@@ -9456,7 +9456,7 @@
         "Index_Slight": 1.6666666666700001,
         "Tunnel": 10,
         "Wisland": 0,
-        "Stairs": 0,
+        "Stairs": 1.67358671,
         "Index_CCTV": 5.2251572727799998,
         "Shape_Length": 0.00027357443
       },

@@ -48,7 +48,7 @@ const MapComponent = ({ value }) => {
               },
             }}
             title={position.title}
-            onClick={() => handleMarkerClick(position)} // Add onClick event handler to open roadview
+            onClick={() => handleMarkerClick(position)}
           />
         ))}
 
@@ -66,10 +66,7 @@ const MapComponent = ({ value }) => {
         )}
 
         {roadviewVisible && (
-          <Roadview
-            position={roadviewPosition}
-            onClose={handleRoadviewClose} // Add onClose event handler to close roadview
-          />
+          <Roadview position={roadviewPosition} onClose={handleRoadviewClose} />
         )}
       </Map>
     </section>

@@ -1,26 +1,17 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
-import {
-  Map,
-  MapMarker,
-  Polyline,
-  MapTypeId,
-  Roadview,
-  RoadviewOverlay,
-} from "react-kakao-maps-sdk";
+import React, { useEffect, useState } from "react";
+import { Map, MapMarker, Polyline, Roadview } from "react-kakao-maps-sdk";
 import { getResult } from "@/assets/utils";
 
 const MapComponent = ({ value }) => {
   const [convertData, setConvertData] = useState([]);
-  const [isRoadViewActive, setIsRoadViewActive] = useState(false);
-  const roadviewRef = useRef();
-
+  const [roadviewVisible, setRoadviewVisible] = useState(false); // add state for roadview visibility
   const positions = [
     {
       title: "Sangdo 1-dong Community Service Center",
       latlng: { lat: 37.4980901, lng: 126.953061 },
     },
-  ]; // Your array of positions
+  ]; // positions array
 
   useEffect(() => {
     if (value) {
@@ -28,12 +19,8 @@ const MapComponent = ({ value }) => {
     }
   }, [value]);
 
-  const toggleRoadView = () => {
-    setIsRoadViewActive(!isRoadViewActive);
-  };
-
-  const handleRoadViewClose = () => {
-    setIsRoadViewActive(false);
+  const handleRoadviewToggle = () => {
+    setRoadviewVisible(!roadviewVisible); // toggle roadview visibility state
   };
 
   return (
@@ -49,7 +36,10 @@ const MapComponent = ({ value }) => {
             position={position.latlng}
             image={{
               src: "https://ifh.cc/g/W0sr2l.png",
-              size: { width: 24, height: 35 },
+              size: {
+                width: 24,
+                height: 35,
+              },
             }}
             title={position.title}
           />
@@ -68,44 +58,22 @@ const MapComponent = ({ value }) => {
           </>
         )}
 
-        {isRoadViewActive && (
-          <>
-            <MapTypeId type="roadview" />
-            <MapMarker position={positions[0].latlng} />
-          </>
+        {roadviewVisible && ( // render Roadview component if roadviewVisible is true
+          <Roadview
+            position={{
+              lat: 37.503223613853585,
+              lng: 126.95167472871846,
+            }}
+            pov={{
+              pan: 180,
+              tilt: 0,
+              zoom: 0,
+            }}
+          />
         )}
-
-        <div
-          id="roadviewControl"
-          className={isRoadViewActive ? "active" : ""}
-          onClick={toggleRoadView}
-        >
-          <span className="img"></span>
-        </div>
       </Map>
-
-      {isRoadViewActive && (
-        <Roadview
-          position={positions[0].latlng}
-          style={{ width: "100%", height: "300px" }}
-          ref={roadviewRef}
-          onPositionChanged={(rv) => {
-            const position = rv.getPosition();
-            // Handle position change if needed
-          }}
-          onPanoidChange={() => {
-            // Handle pano ID change if needed
-          }}
-          onErrorGetNearestPanoId={() => {
-            // Handle error getting nearest pano ID if needed
-          }}
-        >
-          <div id="close" title="로드뷰닫기" onClick={handleRoadViewClose}>
-            <span className="img"></span>
-          </div>
-          {/* Additional road view content */}
-        </Roadview>
-      )}
+      <button onClick={handleRoadviewToggle}>Toggle Roadview</button> // add
+      button to toggle roadview visibility
     </section>
   );
 };

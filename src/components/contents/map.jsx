@@ -58,7 +58,7 @@ const MapComponent = ({ value }) => {
           </>
         )}
 
-        {roadviewVisible && ( // render Roadview component if roadviewVisible is true
+        {roadviewVisible && (
           <Roadview
             position={{
               lat: 37.503223613853585,

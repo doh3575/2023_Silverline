@@ -45,7 +45,7 @@ const MapComponent = ({ value }) => {
     if (roadview && map) {
       roadview.relayout();
       map.relayout();
-      map.setCenter(new window.kakao.maps.LatLng(center.lat, center.lng));
+      map.setCenter(center.lat, center.lng);
     }
   }, [isActive, center, isActive]);
 

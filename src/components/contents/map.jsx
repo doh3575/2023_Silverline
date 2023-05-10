@@ -1,6 +1,12 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
-import { Map, MapMarker, Polyline, Roadview } from "react-kakao-maps-sdk";
+import {
+  Map,
+  MapMarker,
+  Polyline,
+  Roadview,
+  MapTypeId,
+} from "react-kakao-maps-sdk";
 import { getResult } from "@/assets/utils";
 
 const apiKey = process.env.REACT_APP_KAKAO_MAPS_API_KEY;
@@ -59,7 +65,7 @@ const MapComponent = ({ value }) => {
         level={4}
         ref={mapRef}
       >
-        {isAtive && (
+        {isActive && (
           <>
             <MapTypeId type={kakao.maps.MapTypeId.ROADVIEW} />
             <MapMarker
@@ -114,10 +120,10 @@ const MapComponent = ({ value }) => {
 
         <div
           id="roadviewControl"
-          className={isAtive ? "active" : ""}
+          className={isActive ? "active" : ""}
           onClick={() => {
             setIsVisible(true);
-            setIsAtive(!isAtive);
+            setIsActive(!isActive);
           }}
         >
           <span className="img"></span>
@@ -143,7 +149,7 @@ const MapComponent = ({ value }) => {
               });
             }}
             onPanoidChange={() => {
-              isAtive && setIsVisible(true);
+              isActive && setIsVisible(true);
             }}
             onErrorGetNearestPanoId={() => {
               setIsVisible(false);

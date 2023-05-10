@@ -11,8 +11,8 @@ import { getResult } from "@/assets/utils";
 
 const MapComponent = ({ value }) => {
   const [convertData, setConvertData] = useState([]);
-  const [isActive, setIsActive] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isActive, setIsActive] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
   const mapRef = useRef();
   const roadviewRef = useRef();
 

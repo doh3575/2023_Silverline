@@ -1,10 +1,20 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Map, MapMarker, Polyline } from "react-kakao-maps-sdk";
+import {
+  Map,
+  MapMarker,
+  Polyline,
+  RoadviewPanorama,
+} from "react-kakao-maps-sdk";
 import { getResult } from "@/assets/utils";
 
 const MapComponent = ({ value }) => {
   const [convertData, setConvertData] = useState([]);
+  const [showRoadView, setShowRoadView] = useState(false); // State variable to toggle road view
+  const toggleRoadView = () => {
+    setShowRoadView(!showRoadView);
+  };
+
   const positions = [
     {
       title: "상도1동주민센터",
@@ -108,7 +118,17 @@ const MapComponent = ({ value }) => {
             ))}
           </>
         )}
+
+        {showRoadView && (
+          <RoadviewPanorama
+            position={{ lat: 37.503223613853585, lng: 126.95167472871846 }} // Position for road view
+            pov={{ pan: 180, tilt: 0, zoom: 1 }} // Point of view configuration
+            style={{ width: "100%", height: "100%" }}
+          />
+        )}
       </Map>
+
+      <button onClick={toggleRoadView}>Toggle Road View</button>
     </section>
   );
 };

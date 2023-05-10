@@ -1,26 +1,25 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
-import { Map, MapMarker, Polyline } from "react-kakao-maps-sdk";
+import { Map, MapMarker, Polyline, Roadview } from "react-kakao-maps-sdk";
 import { getResult } from "@/assets/utils";
 
 const MapComponent = ({ value }) => {
   const [convertData, setConvertData] = useState([]);
   const [isActive, setIsActive] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
   const mapRef = useRef();
   const roadviewRef = useRef();
 
   const [center, setCenter] = useState({
-    lat: 37.4980901,
-    lng: 126.953061,
+    lat: 37.503223613853585,
+    lng: 126.95167472871846,
   });
 
   const positions = [
     {
-      title: "Sangdo 1-dong Community Service Center",
-      latlng: { lat: 37.4980901, lng: 126.953061 },
+      title: "Raemian Sangdo 2nd Senior Citizen's Center",
+      latlng: { lat: 37.4980381, lng: 126.958252 },
     },
-  ]; // positions array
+  ];
 
   useEffect(() => {
     if (value) {
@@ -36,25 +35,11 @@ const MapComponent = ({ value }) => {
       map.relayout();
       map.setCenter(new window.kakao.maps.LatLng(center.lat, center.lng));
     }
-  }, [isVisible, center, isActive]);
+  }, [isActive, center]);
 
   const handleRoadviewToggle = () => {
     setIsActive(!isActive);
   };
-
-  useEffect(() => {
-    if (isActive) {
-      const container = document.getElementById("roadviewContainer");
-      const roadview = new window.kakao.maps.Roadview(container);
-
-      roadview.setPanoId(null, center, 50);
-      setIsVisible(true);
-
-      return () => {
-        setIsVisible(false);
-      };
-    }
-  }, [isActive, center]);
 
   return (
     <section className="map-section">
@@ -129,9 +114,30 @@ const MapComponent = ({ value }) => {
           right: "10px",
           width: "300px",
           height: "200px",
-          display: isVisible ? "block" : "none",
+          display: isActive ? "block" : "none",
         }}
-      />
+      >
+        {isActive && (
+          <Roadview
+            position={center}
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+            onPositionChanged={(rv) => {
+              setCenter({
+                lat: rv.getPosition().getLat(),
+                lng: rv.getPosition().getLng(),
+              });
+            }}
+            ref={roadviewRef}
+          >
+            <div id="close" title="로드뷰닫기" onClick={handleRoadviewToggle}>
+              Close RoadView
+            </div>
+          </Roadview>
+        )}
+      </div>
     </section>
   );
 };

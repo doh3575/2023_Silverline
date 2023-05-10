@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState, useRef } from "react";
 import { Map, MapMarker, Polyline } from "react-kakao-maps-sdk";
 import { getResult } from "@/assets/utils";
@@ -131,23 +132,6 @@ const MapComponent = ({ value }) => {
           display: isVisible ? "block" : "none",
         }}
       />
-
-      <style jsx>{`
-        .toggle-button {
-          position: absolute;
-          top: 10px;
-          left: 10px;
-          padding: 10px;
-          background-color: #fff;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          cursor: pointer;
-        }
-
-        .toggle-button.active {
-          background-color: #ccc;
-        }
-      `}</style>
     </section>
   );
 };

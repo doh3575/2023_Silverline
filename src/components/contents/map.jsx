@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Map, MapMarker, Polyline, MapControl } from "react-kakao-maps-sdk";
+import { Map, MapMarker, Polyline } from "react-kakao-maps-sdk";
 import { getResult } from "@/assets/utils";
 
 const MapComponent = ({ value }) => {
@@ -76,13 +76,17 @@ const MapComponent = ({ value }) => {
     }
   }, [value]);
 
+  const toggleRoadview = () => {
+    setShowRoadview(!showRoadview);
+  };
+
   return (
     <section className="map-section">
       <Map
         center={{ lat: 37.503223613853585, lng: 126.95167472871846 }}
         style={{ width: "100%", height: "100%" }}
         level={4}
-        roadview={showRoadview}
+        roadview={showRoadview} // enable/disable roadview
       >
         {positions.map((position, index) => (
           <MapMarker
@@ -112,17 +116,12 @@ const MapComponent = ({ value }) => {
           </>
         )}
 
-        <MapControl
-          position={window.kakao.maps.ControlPosition.TOP_RIGHT}
-          content={
-            <div
-              className={`btn-roadview ${showRoadview ? "active" : ""}`}
-              onClick={toggleRoadview}
-            >
-              Roadview
-            </div>
-          }
-        />
+        <div
+          className={`btn-roadview ${showRoadview ? "active" : ""}`}
+          onClick={toggleRoadview}
+        >
+          Roadview
+        </div>
       </Map>
 
       <button onClick={toggleRoadView}>Toggle Road View</button>

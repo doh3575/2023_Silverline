@@ -72,7 +72,19 @@ const MapComponent = ({ value }) => {
           />
         )}
       </Map>
-      <button onClick={handleRoadviewToggle}>Toggle Roadview</button>
+      <button
+        onClick={handleRoadviewToggle}
+        style={{
+          padding: "8px 16px",
+          backgroundColor: "blue",
+          color: "white",
+          border: "none",
+          borderRadius: "4px",
+          cursor: "pointer",
+        }}
+      >
+        Toggle Roadview
+      </button>
     </section>
   );
 };

@@ -1,11 +1,26 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { Map, MapMarker, Polyline, Roadview } from "react-kakao-maps-sdk";
+import React, { useEffect, useState, useRef } from "react";
+import {
+  Map,
+  MapMarker,
+  Polyline,
+  MapTypeId,
+  Roadview,
+} from "react-kakao-maps-sdk";
 import { getResult } from "@/assets/utils";
 
 const MapComponent = ({ value }) => {
   const [convertData, setConvertData] = useState([]);
-  const [roadviewVisible, setRoadviewVisible] = useState(false); // add state for roadview visibility
+  const [isAtive, setIsAtive] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const mapRef = useRef();
+  const roadviewRef = useRef();
+
+  const [center, setCenter] = useState({
+    lat: 33.450422139819736,
+    lng: 126.5709139924533,
+  });
+
   const positions = [
     {
       title: "Sangdo 1-dong Community Service Center",
@@ -19,9 +34,15 @@ const MapComponent = ({ value }) => {
     }
   }, [value]);
 
-  const handleRoadviewToggle = () => {
-    setRoadviewVisible(!roadviewVisible); // toggle roadview visibility state
-  };
+  useEffect(() => {
+    const map = mapRef.current;
+    const roadview = roadviewRef.current;
+    if (roadview && map) {
+      roadview.relayout();
+      map.relayout();
+      map.setCenter(new kakao.maps.LatLng(center.lat, center.lng));
+    }
+  }, [isVisible, center, isAtive]);
 
   return (
     <section className="map-section">
@@ -29,6 +50,7 @@ const MapComponent = ({ value }) => {
         center={{ lat: 37.503223613853585, lng: 126.95167472871846 }}
         style={{ width: "100%", height: "100%" }}
         level={4}
+        ref={mapRef}
       >
         {positions.map((position, index) => (
           <MapMarker
@@ -58,33 +80,78 @@ const MapComponent = ({ value }) => {
           </>
         )}
 
-        {roadviewVisible && (
-          <Roadview
-            position={{
-              lat: 37.503223613853585,
-              lng: 126.95167472871846,
-            }}
-            pov={{
-              pan: 180,
-              tilt: 0,
-              zoom: 0,
-            }}
-          />
+        {isAtive && (
+          <>
+            <MapTypeId type={kakao.maps.MapTypeId.ROADVIEW} />
+            <MapMarker
+              position={center}
+              draggable={true}
+              onDragEnd={(marker) => {
+                setCenter({
+                  lat: marker.getPosition().getLat(),
+                  lng: marker.getPosition().getLng(),
+                });
+              }}
+              image={{
+                src: "https://t1.daumcdn.net/localimg/localimages/07/2018/pc/roadview_minimap_wk_2018.png",
+                size: { width: 26, height: 46 },
+                options: {
+                  spriteSize: { width: 1666, height: 168 },
+                  spriteOrigin: { x: 705, y: 114 },
+                  offset: { x: 13, y: 46 },
+                },
+              }}
+            />
+          </>
         )}
       </Map>
-      <button
-        onClick={handleRoadviewToggle}
-        style={{
-          padding: "8px 16px",
-          backgroundColor: "blue",
-          color: "white",
-          border: "none",
-          borderRadius: "4px",
-          cursor: "pointer",
+      <div
+        id="roadviewControl"
+        className={isAtive ? "active" : ""}
+        onClick={() => {
+          setIsVisible(true);
+          setIsAtive(!isAtive);
         }}
       >
-        Toggle Roadview
-      </button>
+        <span className="img"></span>
+      </div>
+      <div
+        style={{
+          position: "relative",
+          width: isVisible ? "50%" : "0",
+          overflow: "hidden",
+        }}
+      >
+        <Roadview // 로드뷰를 표시할 Container
+          position={{ ...center, radius: 50 }}
+          style={{
+            // 지도의 크기
+            width: "100%",
+            height: "100%",
+          }}
+          onPositionChanged={(rv) => {
+            setCenter({
+              lat: rv.getPosition().getLat(),
+              lng: rv.getPosition().getLng(),
+            });
+          }}
+          onPanoidChange={() => {
+            isAtive && setIsVisible(true);
+          }}
+          onErrorGetNearestPanoId={() => {
+            setIsVisible(false);
+          }}
+          ref={roadviewRef}
+        >
+          <div
+            id="close"
+            title="로드뷰닫기"
+            onClick={() => setIsVisible(false)}
+          >
+            <span className="img"></span>
+          </div>
+        </Roadview>
+      </div>
     </section>
   );
 };

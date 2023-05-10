@@ -9,6 +9,7 @@ import {
 } from "react-kakao-maps-sdk";
 import { getResult } from "@/assets/utils";
 
+const apiKey = process.env.REACT_APP_KAKAO_MAPS_API_KEY;
 const MapComponent = ({ value }) => {
   const [convertData, setConvertData] = useState([]);
   const [isActive, setIsActive] = useState(true);
@@ -44,7 +45,7 @@ const MapComponent = ({ value }) => {
     if (roadview && map) {
       roadview.relayout();
       map.relayout();
-      map.setCenter(center.lat, center.lng);
+      map.setCenter(new window.kakao.maps.LatLng(center.lat, center.lng));
     }
   }, [isActive, center, isActive]);
 
@@ -94,6 +95,7 @@ const MapComponent = ({ value }) => {
 
         {isActive && (
           <>
+            <MapTypeId type={kakao.maps.MapTypeId.ROADVIEW} />
             <MapMarker
               position={center}
               draggable={true}

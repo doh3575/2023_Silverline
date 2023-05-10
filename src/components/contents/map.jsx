@@ -1,24 +1,17 @@
-"use client";
 import React, { useEffect, useState, useRef } from "react";
-import {
-  Map,
-  MapMarker,
-  Polyline,
-  MapTypeId,
-  Roadview,
-} from "react-kakao-maps-sdk";
+import { Map, MapMarker, Polyline } from "react-kakao-maps-sdk";
 import { getResult } from "@/assets/utils";
 
 const MapComponent = ({ value }) => {
   const [convertData, setConvertData] = useState([]);
-  const [isAtive, setIsAtive] = useState(false);
+  const [isActive, setIsActive] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const mapRef = useRef();
   const roadviewRef = useRef();
 
   const [center, setCenter] = useState({
-    lat: 33.450422139819736,
-    lng: 126.5709139924533,
+    lat: 37.4980901,
+    lng: 126.953061,
   });
 
   const positions = [
@@ -40,9 +33,27 @@ const MapComponent = ({ value }) => {
     if (roadview && map) {
       roadview.relayout();
       map.relayout();
-      map.setCenter(new kakao.maps.LatLng(center.lat, center.lng));
+      map.setCenter(new window.kakao.maps.LatLng(center.lat, center.lng));
     }
-  }, [isVisible, center, isAtive]);
+  }, [isVisible, center, isActive]);
+
+  const handleRoadviewToggle = () => {
+    setIsActive(!isActive);
+  };
+
+  useEffect(() => {
+    if (isActive) {
+      const container = document.getElementById("roadviewContainer");
+      const roadview = new window.kakao.maps.Roadview(container);
+
+      roadview.setPanoId(null, center, 50);
+      setIsVisible(true);
+
+      return () => {
+        setIsVisible(false);
+      };
+    }
+  }, [isActive, center]);
 
   return (
     <section className="map-section">
@@ -80,78 +91,63 @@ const MapComponent = ({ value }) => {
           </>
         )}
 
-        {isAtive && (
-          <>
-            <MapTypeId type={kakao.maps.MapTypeId.ROADVIEW} />
-            <MapMarker
-              position={center}
-              draggable={true}
-              onDragEnd={(marker) => {
-                setCenter({
-                  lat: marker.getPosition().getLat(),
-                  lng: marker.getPosition().getLng(),
-                });
-              }}
-              image={{
-                src: "https://t1.daumcdn.net/localimg/localimages/07/2018/pc/roadview_minimap_wk_2018.png",
-                size: { width: 26, height: 46 },
-                options: {
-                  spriteSize: { width: 1666, height: 168 },
-                  spriteOrigin: { x: 705, y: 114 },
-                  offset: { x: 13, y: 46 },
-                },
-              }}
-            />
-          </>
+        {isActive && (
+          <MapMarker
+            position={center}
+            draggable={true}
+            onDragEnd={(marker) => {
+              setCenter({
+                lat: marker.getPosition().getLat(),
+                lng: marker.getPosition().getLng(),
+              });
+            }}
+            image={{
+              src: "https://t1.daumcdn.net/localimg/localimages/07/2018/pc/roadview_minimap_wk_2018.png",
+              size: { width: 26, height: 46 },
+              options: {
+                spriteSize: { width: 1666, height: 168 },
+                spriteOrigin: { x: 705, y: 114 },
+                offset: { x: 13, y: 46 },
+              },
+            }}
+          />
         )}
+
+        <button
+          className={`toggle-button ${isActive ? "active" : ""}`}
+          onClick={handleRoadviewToggle}
+        >
+          Toggle RoadView
+        </button>
       </Map>
       <div
-        id="roadviewControl"
-        className={isAtive ? "active" : ""}
-        onClick={() => {
-          setIsVisible(true);
-          setIsAtive(!isAtive);
-        }}
-      >
-        <span className="img"></span>
-      </div>
-      <div
+        id="roadviewContainer"
         style={{
-          position: "relative",
-          width: isVisible ? "50%" : "0",
-          overflow: "hidden",
+          position: "absolute",
+          top: "10px",
+          right: "10px",
+          width: "300px",
+          height: "200px",
+          display: isVisible ? "block" : "none",
         }}
-      >
-        <Roadview // 로드뷰를 표시할 Container
-          position={{ ...center, radius: 50 }}
-          style={{
-            // 지도의 크기
-            width: "100%",
-            height: "100%",
-          }}
-          onPositionChanged={(rv) => {
-            setCenter({
-              lat: rv.getPosition().getLat(),
-              lng: rv.getPosition().getLng(),
-            });
-          }}
-          onPanoidChange={() => {
-            isAtive && setIsVisible(true);
-          }}
-          onErrorGetNearestPanoId={() => {
-            setIsVisible(false);
-          }}
-          ref={roadviewRef}
-        >
-          <div
-            id="close"
-            title="로드뷰닫기"
-            onClick={() => setIsVisible(false)}
-          >
-            <span className="img"></span>
-          </div>
-        </Roadview>
-      </div>
+      />
+
+      <style jsx>{`
+        .toggle-button {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          padding: 10px;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+
+        .toggle-button.active {
+          background-color: #ccc;
+        }
+      `}</style>
     </section>
   );
 };

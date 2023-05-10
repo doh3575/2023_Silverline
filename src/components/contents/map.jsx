@@ -107,7 +107,7 @@ const MapComponent = ({ value }) => {
           className={`toggle-button ${isActive ? "active" : ""}`}
           onClick={handleRoadviewToggle}
         >
-          Toggle RoadView
+          RoadView
         </button>
       </Map>
 

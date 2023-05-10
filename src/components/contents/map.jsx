@@ -27,6 +27,10 @@ const MapComponent = ({ value }) => {
     }
   }, [value]);
 
+  const handleRoadviewToggle = () => {
+    setIsActive(!isActive);
+  };
+
   useEffect(() => {
     const map = mapRef.current;
     const roadview = roadviewRef.current;
@@ -36,10 +40,6 @@ const MapComponent = ({ value }) => {
       map.setCenter(new window.kakao.maps.LatLng(center.lat, center.lng));
     }
   }, [isActive, center]);
-
-  const handleRoadviewToggle = () => {
-    setIsActive(!isActive);
-  };
 
   return (
     <section className="map-section">
@@ -99,6 +99,10 @@ const MapComponent = ({ value }) => {
           />
         )}
 
+        <div className="toggle-button" onClick={handleRoadviewToggle}>
+          {isActive ? "Close RoadView" : "Open RoadView"}
+        </div>
+
         <button
           className={`toggle-button ${isActive ? "active" : ""}`}
           onClick={handleRoadviewToggle}
@@ -106,6 +110,7 @@ const MapComponent = ({ value }) => {
           Toggle RoadView
         </button>
       </Map>
+
       <div
         id="roadviewContainer"
         style={{
@@ -118,24 +123,16 @@ const MapComponent = ({ value }) => {
         }}
       >
         {isActive && (
-          <Roadview
-            position={center}
-            style={{
-              width: "100%",
-              height: "100%",
-            }}
-            onPositionChanged={(rv) => {
-              setCenter({
-                lat: rv.getPosition().getLat(),
-                lng: rv.getPosition().getLng(),
-              });
-            }}
-            ref={roadviewRef}
-          >
-            <div id="close" title="로드뷰닫기" onClick={handleRoadviewToggle}>
-              Close RoadView
-            </div>
-          </Roadview>
+          <div className="roadview-container">
+            <Roadview
+              position={positions[0].latlng}
+              style={{ width: "100%", height: "100%" }}
+            >
+              <div className="close-button" onClick={handleRoadviewToggle}>
+                Close RoadView
+              </div>
+            </Roadview>
+          </div>
         )}
       </div>
     </section>

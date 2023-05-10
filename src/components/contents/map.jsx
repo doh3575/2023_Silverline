@@ -146,3 +146,5 @@ const MapComponent = ({ value }) => {
     </section>
   );
 };
+
+export default MapComponent;

@@ -15,7 +15,12 @@ const MapComponent = ({ value }) => {
   const [isRoadViewActive, setIsRoadViewActive] = useState(false);
   const roadviewRef = useRef();
 
-  const positions = [...]; // Your array of positions
+  const positions = [
+    {
+      title: "Sangdo 1-dong Community Service Center",
+      latlng: { lat: 37.4980901, lng: 126.953061 },
+    },
+  ]; // Your array of positions
 
   useEffect(() => {
     if (value) {

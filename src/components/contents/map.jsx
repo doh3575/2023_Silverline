@@ -6,7 +6,6 @@ import {
   Polyline,
   MapTypeId,
   Roadview,
-  kakao,
 } from "react-kakao-maps-sdk";
 import { getResult } from "@/assets/utils";
 
@@ -95,7 +94,7 @@ const MapComponent = ({ value }) => {
 
         {isActive && (
           <>
-            <MapTypeId type={kakao.maps.MapTypeId.ROADVIEW} />
+            <MapTypeId type={"ROADVIEW"} />
             <MapMarker
               position={center}
               draggable={true}

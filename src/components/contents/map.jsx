@@ -1,19 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import {
-  Map,
-  MapMarker,
-  Polyline,
-  RoadviewPanorama,
-} from "react-kakao-maps-sdk";
+import { Map, MapMarker, Polyline, MapControl } from "react-kakao-maps-sdk";
 import { getResult } from "@/assets/utils";
 
 const MapComponent = ({ value }) => {
   const [convertData, setConvertData] = useState([]);
   const [showRoadView, setShowRoadView] = useState(false); // State variable to toggle road view
-  const toggleRoadView = () => {
-    setShowRoadView(!showRoadView);
-  };
 
   const positions = [
     {
@@ -90,6 +82,7 @@ const MapComponent = ({ value }) => {
         center={{ lat: 37.503223613853585, lng: 126.95167472871846 }}
         style={{ width: "100%", height: "100%" }}
         level={4}
+        roadview={showRoadview}
       >
         {positions.map((position, index) => (
           <MapMarker
@@ -119,13 +112,17 @@ const MapComponent = ({ value }) => {
           </>
         )}
 
-        {showRoadView && (
-          <RoadviewPanorama
-            position={{ lat: 37.503223613853585, lng: 126.95167472871846 }} // Position for road view
-            pov={{ pan: 180, tilt: 0, zoom: 1 }} // Point of view configuration
-            style={{ width: "100%", height: "100%" }}
-          />
-        )}
+        <MapControl
+          position={window.kakao.maps.ControlPosition.TOP_RIGHT}
+          content={
+            <div
+              className={`btn-roadview ${showRoadview ? "active" : ""}`}
+              onClick={toggleRoadview}
+            >
+              Roadview
+            </div>
+          }
+        />
       </Map>
 
       <button onClick={toggleRoadView}>Toggle Road View</button>

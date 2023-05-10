@@ -72,8 +72,7 @@ const MapComponent = ({ value }) => {
           />
         )}
       </Map>
-      <button onClick={handleRoadviewToggle}>Toggle Roadview</button> // add
-      button to toggle roadview visibility
+      <button onClick={handleRoadviewToggle}>Toggle Roadview</button>
     </section>
   );
 };

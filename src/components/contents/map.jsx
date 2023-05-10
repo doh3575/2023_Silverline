@@ -107,54 +107,32 @@ const MapComponent = ({ value }) => {
           className={`toggle-button ${isActive ? "active" : ""}`}
           onClick={handleRoadviewToggle}
         ></button>
+
+        <div
+          id="roadviewContainer"
+          style={{
+            position: "absolute",
+            top: "10px",
+            right: "10px",
+            width: "300px",
+            height: "200px",
+            display: isActive ? "block" : "none",
+          }}
+        >
+          {isActive && (
+            <div className="roadview-container">
+              <Roadview
+                position={positions[0].latlng}
+                style={{ width: "100%", height: "100%" }}
+              >
+                <div className="close-button" onClick={handleRoadviewToggle}>
+                  Close RoadView
+                </div>
+              </Roadview>
+            </div>
+          )}
+        </div>
       </Map>
-
-      <div
-        id="roadviewContainer"
-        style={{
-          position: "absolute",
-          top: "10px",
-          right: "10px",
-          width: "300px",
-          height: "200px",
-          display: isActive ? "block" : "none",
-        }}
-      >
-        {isActive && (
-          <div className="roadview-container">
-            <Roadview
-              position={positions[0].latlng}
-              style={{ width: "100%", height: "100%" }}
-            >
-              <div className="close-button" onClick={handleRoadviewToggle}>
-                Close RoadView
-              </div>
-            </Roadview>
-          </div>
-        )}
-      </div>
-
-      <style jsx>{`
-        .toggle-button {
-          position: absolute;
-          top: 20px;
-          right: 20px;
-          z-index: 1;
-          background-color: #fff;
-          color: #000;
-          border: none;
-          border-radius: 5px;
-          padding: 5px 10px;
-          font-size: 14px;
-          cursor: pointer;
-        }
-
-        /* Style for the active state */
-        .toggle-button.active {
-          background-color: #000;
-          color: #fff;
-        }
-      `}</style>
     </section>
   );
 };

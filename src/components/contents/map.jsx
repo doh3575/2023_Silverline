@@ -76,8 +76,8 @@ const MapComponent = ({ value }) => {
     }
   }, [value]);
 
-  const toggleRoadview = () => {
-    setShowRoadview(!showRoadview);
+  const toggleRoadView = () => {
+    setShowRoadView(!showRoadView);
   };
 
   return (
@@ -86,7 +86,7 @@ const MapComponent = ({ value }) => {
         center={{ lat: 37.503223613853585, lng: 126.95167472871846 }}
         style={{ width: "100%", height: "100%" }}
         level={4}
-        roadview={showRoadview} // enable/disable roadview
+        roadview={showRoadView} // enable/disable roadview
       >
         {positions.map((position, index) => (
           <MapMarker
@@ -117,8 +117,8 @@ const MapComponent = ({ value }) => {
         )}
 
         <div
-          className={`btn-roadview ${showRoadview ? "active" : ""}`}
-          onClick={toggleRoadview}
+          className={`btn-roadview ${showRoadView ? "active" : ""}`}
+          onClick={toggleRoadView}
         >
           Roadview
         </div>

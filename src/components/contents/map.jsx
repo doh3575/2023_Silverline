@@ -92,7 +92,7 @@ const MapComponent = ({ value }) => {
           </>
         )}
 
-        {isAtive && (
+        {isActive && (
           <>
             <MapTypeId type={kakao.maps.MapTypeId.ROADVIEW} />
             <MapMarker
@@ -120,10 +120,10 @@ const MapComponent = ({ value }) => {
 
       <div
         id="roadviewControl"
-        className={isAtive ? "active" : ""}
+        className={isActive ? "active" : ""}
         onClick={() => {
           setIsVisible(true);
-          setIsAtive(!isAtive);
+          setIsActive(!isActive);
         }}
       >
         <span className="img"></span>
@@ -149,7 +149,7 @@ const MapComponent = ({ value }) => {
             });
           }}
           onPanoidChange={() => {
-            isAtive && setIsVisible(true);
+            isActive && setIsVisible(true);
           }}
           onErrorGetNearestPanoId={() => {
             setIsVisible(false);

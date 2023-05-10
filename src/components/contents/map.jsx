@@ -133,6 +133,28 @@ const MapComponent = ({ value }) => {
           )}
         </div>
       </Map>
+
+      <style jsx>{`
+        .toggle-button {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          z-index: 1;
+          background-color: #fff;
+          color: #000;
+          border: none;
+          border-radius: 5px;
+          padding: 5px 10px;
+          font-size: 14px;
+          cursor: pointer;
+        }
+
+        /* Style for the active state */
+        .toggle-button.active {
+          background-color: #000;
+          color: #fff;
+        }
+      `}</style>
     </section>
   );
 };

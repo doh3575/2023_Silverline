@@ -6,6 +6,7 @@ import {
   Polyline,
   MapTypeId,
   Roadview,
+  kakao,
 } from "react-kakao-maps-sdk";
 import { getResult } from "@/assets/utils";
 

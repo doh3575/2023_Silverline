@@ -94,7 +94,6 @@ const MapComponent = ({ value }) => {
 
         {isActive && (
           <>
-            <MapTypeId type={"ROADVIEW"} />
             <MapMarker
               position={center}
               draggable={true}

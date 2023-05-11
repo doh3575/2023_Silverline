@@ -24,8 +24,64 @@ const MapComponent = ({ value }) => {
 
   const positions = [
     {
-      title: "Raemian Sangdo 2nd Senior Citizen's Center",
+      title: "상도1동 주민센터",
+      latlng: { lat: 37.4980901, lng: 126.953061 },
+    },
+    {
+      title: "상도패리스 경로당",
+      latlng: { lat: 37.5035055, lng: 126.953951 },
+    },
+    {
+      title: "상도프레스티지아파트 경로당",
+      latlng: { lat: 37.4965206, lng: 126.948923 },
+    },
+    {
+      title: "상도종합사회복지관",
+      latlng: { lat: 37.5024675, lng: 126.949586 },
+    },
+    {
+      title: "삼환나우빌아파트 경로당",
+      latlng: { lat: 37.4983167, lng: 126.95651 },
+    },
+    {
+      title: "래미안상도3차아파트 경로당",
+      latlng: { lat: 37.4992621, lng: 126.954689 },
+    },
+    {
+      title: "삼호아파트 경로당",
+      latlng: { lat: 37.4934156, lng: 126.957282 },
+    },
+    {
+      title: "래미안상도2차아파트 경로당",
       latlng: { lat: 37.4980381, lng: 126.958252 },
+    },
+    {
+      title: "고경경로당",
+      latlng: { lat: 37.4974057, lng: 126.953842 },
+    },
+    {
+      title: "청송경로당",
+      latlng: { lat: 37.4972423, lng: 126.950992 },
+    },
+    {
+      title: "상도에스에이치빌아파트경로당",
+      latlng: { lat: 37.5021091, lng: 126.954348 },
+    },
+    {
+      title: "상도은빛어르신복지관",
+      latlng: { lat: 37.5064687, lng: 126.951303 },
+    },
+    {
+      title: "중앙하이츠아파트경로당",
+      latlng: { lat: 37.4991068, lng: 126.94969 },
+    },
+    {
+      title: "상도1동경로당",
+      latlng: { lat: 37.5003495, lng: 126.948208 },
+    },
+    {
+      title: "힐스테이트상도센트럴파크아파트경로당",
+      latlng: { lat: 37.4953952, lng: 126.950858 },
     },
   ];
 

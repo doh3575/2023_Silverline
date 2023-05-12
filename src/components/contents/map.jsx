@@ -227,8 +227,8 @@ const MapComponent = ({ value }) => {
             onClick={() => setIsActive(!isActive)}
             style={{
               position: "fixed",
-              top: "50px",
-              right: "30px",
+              top: "90px",
+              right: "40px",
               zIndex: 1,
               backgroundColor: isActive ? "#000" : "#fff",
               color: isActive ? "#fff" : "#000",

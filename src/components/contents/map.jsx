@@ -227,9 +227,16 @@ const MapComponent = ({ value }) => {
             onClick={() => setIsActive(!isActive)}
             style={{
               position: "fixed",
-              top: "20px",
-              right: "20px",
-              zIndex: 1, // Adjust the z-index value if necessary
+              top: "50px",
+              right: "30px",
+              zIndex: 1,
+              backgroundColor: isActive ? "#000" : "#fff",
+              color: isActive ? "#fff" : "#000",
+              border: "none",
+              borderRadius: "5px",
+              padding: "5px 10px",
+              fontSize: "14px",
+              cursor: "pointer",
             }}
           >
             {isActive ? "Close RoadView" : "Open RoadView"}

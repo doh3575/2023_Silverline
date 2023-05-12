@@ -222,7 +222,16 @@ const MapComponent = ({ value }) => {
             </Roadview>
           </div>
 
-          <div className="toggle-button" onClick={() => setIsActive(!isActive)}>
+          <div
+            className="toggle-button"
+            onClick={() => setIsActive(!isActive)}
+            style={{
+              position: "fixed",
+              top: "20px",
+              right: "20px",
+              zIndex: 1, // Adjust the z-index value if necessary
+            }}
+          >
             {isActive ? "Close RoadView" : "Open RoadView"}
           </div>
         </Map>
@@ -232,8 +241,6 @@ const MapComponent = ({ value }) => {
             id="roadviewContainer"
             style={{
               position: "absolute",
-              top: "10px",
-              right: "10px",
               width: "300px",
               height: "200px",
               display: isActive ? "block" : "none",

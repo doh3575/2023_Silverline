@@ -226,8 +226,8 @@ const MapComponent = ({ value }) => {
             className="toggle-button"
             onClick={() => setIsActive(!isActive)}
             style={{
-              position: "fixed",
-              top: "110px",
+              position: "absolute",
+              top: "200px",
               right: "60px",
               zIndex: 1,
               backgroundColor: isActive ? "#000" : "#fff",

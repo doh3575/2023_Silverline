@@ -5,8 +5,8 @@
   transform: translate(-50%, -50%);
   width: 60%;
   height: 60%;
-  background-color: rgb(243, 227, 208);
-  border: none;
+  background-color: none;
+  border: black;
   border-radius: 20px;
   display: none;
   z-index: 9999;

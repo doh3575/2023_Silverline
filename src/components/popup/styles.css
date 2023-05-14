@@ -48,3 +48,13 @@
   height: auto;
   margin-bottom: 10px;
 }
+
+@media (max-width: 768px) {
+  .image-container {
+    flex-direction: column;
+  }
+
+  .image-container img {
+    width: 100%;
+  }
+}

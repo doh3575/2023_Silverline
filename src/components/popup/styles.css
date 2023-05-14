@@ -75,7 +75,6 @@
 .image-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
   height: 100%;
 }
@@ -83,17 +82,17 @@
 .image-container img {
   width: 48%;
   height: auto;
-  margin-bottom: 0;
+  margin-right: 0;
 }
 
 @media (max-width: 768px) {
   .image-container {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
   }
 
   .image-container img {
     width: 100%;
+    margin-bottom: 0;
   }
 }

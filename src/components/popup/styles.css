@@ -46,7 +46,6 @@
 .image-container img {
   width: 48%;
   height: auto;
-  margin-bottom: 10px;
 }
 
 @media (max-width: 768px) {

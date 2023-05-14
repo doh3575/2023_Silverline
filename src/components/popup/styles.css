@@ -10,7 +10,7 @@
   display: none;
 }
 
-.popup-open {
+.popup-container.popup-open {
   display: block;
 }
 

@@ -1,6 +1,6 @@
 import Contents from "@/components/contents/contents";
 import Gradient from "@/components/gradient/gradient";
-import Popup from "@/components/gradient/popup";
+import Popup from "@/components/popup/popup";
 
 export default function Home() {
   return (

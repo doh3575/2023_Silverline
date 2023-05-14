@@ -20,7 +20,7 @@ const Popup = () => {
       </button>
       <div className={popupClassName}>
         <img
-          src="https://ifh.cc/v-hTvdRf.png"
+          src="https://lh3.googleusercontent.com/pw/AJFCJaVZTO-0oQrvM7UZ4tuLIG-ki4SCf_ZnpS0PWG9v8VT8gCf-FOE4205GBxxg3WxoI8ltwZeYBhikp_kO90esIfAAc3hZvZzzYwhpITpyCd9KFNmd6Q4=w2400"
           alt="이미지"
           style={{ width: "40%", height: "60%" }}
         />

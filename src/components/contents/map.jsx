@@ -151,7 +151,7 @@ const MapComponent = ({ value }) => {
               key={`${position.title}-${position.latlng.lat}-${position.latlng.lng}`}
               position={position.latlng}
               image={{
-                src: "https://ifh.cc/g/W0sr2l.png",
+                src: "https://lh3.googleusercontent.com/pw/AJFCJaV-s2pDMt9W4N75FHQkn6dBu94SC8DEnjfbfceKgNd3WQiG4MUs-T6e5AKxFdVjHRCg5sJoEhnG1cfpNEOEsBfVbFPIhrzRYIc04E_L6PDbMQOPjBc=w2400",
                 size: {
                   width: 24,
                   height: 35,

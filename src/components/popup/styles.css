@@ -1,21 +1,32 @@
-.popup {
+.popup-container {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  border: 1px solid black;
   display: none;
-  z-index: 9999;
 }
 
-.open {
+.popup-open {
   display: block;
 }
 
-.popupContainer {
-  background: #fff;
-  padding: 20px;
-  border: 1px solid #ccc;
-}
-
-.closeBtn {
-  float: right;
+.popup-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ccc;
+  color: white;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }

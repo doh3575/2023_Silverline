@@ -1,35 +1,22 @@
-import { useState } from "react";
+import React from "react";
+import "./styles.css";
 
-const Popup = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  };
+const Popup = ({ open, onClose }) => {
+  const popupClassName = open
+    ? "popup-container popup-open"
+    : "popup-container";
 
   return (
-    <div className={`popup ${isOpen ? "open" : ""}`}>
-      <button className="openBtn" onClick={togglePopup}>
-        Open Popup
+    <>
+      <button className="popup-button" onClick={onClose}>
+        {open ? "?" : "X"}
       </button>
-      <div className="popupContainer">
-        <div className="popupContent">
-          <button className="closeBtn" onClick={togglePopup}>
-            Close
-          </button>
-          <h2>Welcome to my popup!</h2>
-          <img src="https://ifh.cc/g/W0sr2l.png" alt="" />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae
-            felis lectus. Ut nec ante euismod, gravida purus vel, maximus ipsum.
-            Sed rutrum, nunc ac venenatis hendrerit, libero quam malesuada est,
-            vitae faucibus nulla nisl sed ex. Donec vel accumsan neque. Vivamus
-            tristique justo ut augue pellentesque rhoncus. Suspendisse rutrum
-            aliquet eleifend. Nam rhoncus vel lorem eu bibendum. Nulla facilisi.
-          </p>
-        </div>
+      <div className={popupClassName}>
+        <h1>팝업창</h1>
+        <p>팝업창 내용을 여기에 작성하세요.</p>
+        <img src="https://ifh.cc/g/W0sr2l.png" alt="이미지" />
       </div>
-    </div>
+    </>
   );
 };
 

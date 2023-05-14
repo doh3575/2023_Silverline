@@ -19,14 +19,14 @@
   position: absolute;
   top: 20px;
   left: 20px;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: none;
   background-color: #e5dcd6;
   color: #382b22;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 1000;
   display: flex;
   align-items: center;
   justify-content: center;

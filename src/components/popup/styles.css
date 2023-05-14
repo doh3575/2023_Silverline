@@ -1,5 +1,5 @@
 .popup-container {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -16,16 +16,17 @@
 }
 
 .popup-button {
-  position: fixed;
+  position: absolute;
   top: 20px;
   left: 20px;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: none;
-  background-color: #ccc;
-  color: white;
+  background-color: #e5dcd6;
+  color: #382b22;
   font-size: 16px;
+  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;

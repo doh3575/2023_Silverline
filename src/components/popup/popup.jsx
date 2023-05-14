@@ -16,7 +16,7 @@ const Popup = () => {
   return (
     <>
       <button className="popup-button" onClick={togglePopup}>
-        {open ? "?" : "X"}
+        {open ? "X" : "?"}
       </button>
       <div className={popupClassName}>
         <h1>팝업창</h1>

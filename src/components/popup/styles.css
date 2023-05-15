@@ -3,45 +3,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60%;
-  height: 60%;
-  background-color: none;
-  border: black;
-  border-radius: 20px;
-  display: none;
-  z-index: 9999;
-}
-
-.popup-container.popup-open {
-  display: block;
-}
-
-.popup-button {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: none;
-  background-color: #e5dcd6;
-  color: #382b22;
-  font-size: 18px;
-  font-weight: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 9999;
-}
-
-.popup-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60%;
-  height: 60%;
+  width: 80%;
+  height: 80%;
   background-color: none;
   border: black;
   border-radius: 20px;

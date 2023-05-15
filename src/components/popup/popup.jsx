@@ -21,12 +21,12 @@ const Popup = () => {
       <div className={popupClassName}>
         <div className="image-container">
           <img
-            src="https://lh3.googleusercontent.com/pw/AJFCJaVZTO-0oQrvM7UZ4tuLIG-ki4SCf_ZnpS0PWG9v8VT8gCf-FOE4205GBxxg3WxoI8ltwZeYBhikp_kO90esIfAAc3hZvZzzYwhpITpyCd9KFNmd6Q4=w2400"
-            alt="이미지1"
+            src="https://lh3.googleusercontent.com/pw/AJFCJaVF34cmkR9afNAjcLRVCV0dvHA2xm_ddMUEgAeL11FHMnwBQjR-3FALTx7VtMODZDlKrXFSsnBLtAJs-N6ldrgzztpgQX1U-dJxXkao1yN2r3DqQfE=w2400"
+            alt="도움말1"
           />
           <img
-            src="https://lh3.googleusercontent.com/pw/AJFCJaVZTO-0oQrvM7UZ4tuLIG-ki4SCf_ZnpS0PWG9v8VT8gCf-FOE4205GBxxg3WxoI8ltwZeYBhikp_kO90esIfAAc3hZvZzzYwhpITpyCd9KFNmd6Q4=w2400"
-            alt="이미지 2"
+            src="https://lh3.googleusercontent.com/pw/AJFCJaUTrw8bA7sn60EvoX9rW2jDWiervJnhHMPybSGsAWBb2t5Np-_6a3ybLO6YBALy8d205TO6ujz6PbS77-Az_SH9_cIMZslnICPDb9dEEeXLa9Dixy4=w2400"
+            alt="도움말2"
           />
         </div>
       </div>

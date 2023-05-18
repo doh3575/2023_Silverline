@@ -25,7 +25,7 @@ const Popup = () => {
             alt="도움말1"
           />
           <img
-            src="https://lh3.googleusercontent.com/pw/AJFCJaUTrw8bA7sn60EvoX9rW2jDWiervJnhHMPybSGsAWBb2t5Np-_6a3ybLO6YBALy8d205TO6ujz6PbS77-Az_SH9_cIMZslnICPDb9dEEeXLa9Dixy4=w2400"
+            src="https://lh3.googleusercontent.com/xK8fzihEKudg5cnNg9mvzLkKb3sO8GTm1texELq9w8YAfva3Ud8srf5ypK8uI81Bv_cC-Jpmrh3ivRYmLT0S_yylTjGDo0RIZ1QkQJqF4R0lBuXSdxCoh3VGzkkx9bVZSPNF1ARP6g=w2400"
             alt="도움말2"
           />
         </div>

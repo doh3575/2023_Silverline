@@ -7,10 +7,10 @@ import "./styles.css";
 
 export default function Contents() {
   const [value, setValue] = useState({
-    first: "",
-    second: "",
-    third: "",
-    fourth: "",
+    first: "Index_All",
+    second: "Index_All",
+    third: "Index_All",
+    fourth: "Index_All",
   });
 
   const handleSelect = (rank, value) => {

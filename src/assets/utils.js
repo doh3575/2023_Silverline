@@ -20,17 +20,6 @@ const convertCoords = (coords) => {
 };
 
 export const getResult = (value) => {
-  if (!value) {
-    data[
-      (value = {
-        first: "Index_All",
-        second: "Index_All",
-        third: "Index_All",
-        fourth: "Index_All",
-      })
-    ];
-  }
-
   return data.features.map((feature, index) => {
     const calculated = calculate(feature.properties, value);
     const getColor = getColorByResult(calculated);

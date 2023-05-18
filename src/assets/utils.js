@@ -27,6 +27,17 @@ export const getResult = (value) => {
       third: "Index_All",
       fourth: "Index_All",
     };
+
+    return data.features.map((feature, index) => {
+      const calculated = calculate(feature.properties, value);
+      const getColor = getColorByResult(calculated);
+
+      return {
+        id: index,
+        color: getColor,
+        coords: convertCoords(feature.geometry.coordinates[0]),
+      };
+    });
   }
 
   return data.features.map((feature, index) => {

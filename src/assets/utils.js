@@ -1,5 +1,5 @@
-import data from './data.geojson';
-import { colors } from './options';
+import data from "./data.geojson";
+import { colors } from "./options";
 
 const calculate = (data, value) => {
   return (
@@ -20,6 +20,16 @@ const convertCoords = (coords) => {
 };
 
 export const getResult = (value) => {
+  if (!value) {
+    // Provide a default value if none is provided
+    value = {
+      first: "Index_All",
+      second: "Index_All",
+      third: "Index_All",
+      fourth: "Index_All",
+    };
+  }
+
   return data.features.map((feature, index) => {
     const calculated = calculate(feature.properties, value);
     const getColor = getColorByResult(calculated);

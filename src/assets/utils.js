@@ -21,7 +21,6 @@ const convertCoords = (coords) => {
 
 export const getResult = (value) => {
   if (!value) {
-    // Provide a default value if none is provided
     value = {
       first: "Index_All",
       second: "Index_All",

@@ -169,7 +169,7 @@ const MapComponent = ({ value }) => {
                   path={data.coords}
                   strokeColor={data.color}
                   strokeOpacity={1}
-                  strokeWeight={8}
+                  strokeWeight={5}
                 />
               ))}
             </>
